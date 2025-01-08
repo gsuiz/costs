@@ -1,0 +1,10 @@
+@media screen and (max-width:600px){
+    .navbar__links{
+        display: none;
+    }
+
+    .menuToggle{
+        display: block;
+        transition: .5s;
+    }
+}
