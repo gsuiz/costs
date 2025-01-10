@@ -1,7 +1,7 @@
 
 import { createBrowserRouter } from "react-router-dom"
 import App from "./App"
-import Home from "./components/Home"
+import Home from "./routes/Home"
 
 export default () => createBrowserRouter([
     {
