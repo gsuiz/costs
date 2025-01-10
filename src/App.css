@@ -1,6 +1,7 @@
 :root{
     --headerBackgroundColor:#222;
-    --colorWhite:white;
+    --colorWhite:white; 
+    --colorOrange:#ffbb33;
 }
 
 .navbar{
@@ -95,4 +96,37 @@
     height: 3px;
     background-color: var(--colorWhite);
     transition: .6s;
+}
+
+main{
+    flex: 1;
+}
+
+footer{
+    background-color: var(--headerBackgroundColor);
+    color: white;
+    text-align: center;
+    padding: 30px;
+}
+
+.iconsList{
+    width: min-content;
+    list-style: none;
+    display: flex;
+    gap: 30px;
+    margin: auto;
+}
+
+.iconsList__item{
+    font-size: 25px;
+    cursor: pointer;
+}
+
+footer > p{
+    margin-top: 30px;
+
+    & > span{
+        color: var(--colorOrange);
+        font-weight: bold;
+    }
 }

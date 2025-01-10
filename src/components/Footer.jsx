@@ -1,11 +1,17 @@
 
+import { FaFacebook } from "react-icons/fa";
+import { FaInstagram } from "react-icons/fa";
+import { FaLinkedin } from "react-icons/fa";
+
+
+
 export default () => (
     <footer>
         <ul className='iconsList'>
-          <li>facebook</li>
-          <li>instagram</li>
-          <li>LinkedIn</li>
+          <li className='iconsList__item'><FaFacebook/></li>
+          <li className='iconsList__item'><FaInstagram/></li>
+          <li className='iconsList__item'><FaLinkedin/></li>
         </ul>
-        <p>Costs2025</p>
-      </footer>
+        <p><span>Costs</span> © 2025</p>
+    </footer>
 )

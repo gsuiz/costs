@@ -5,7 +5,16 @@
   box-sizing: border-box;
 }
 
+html,body,#root{
+  min-height: 100vh;
+}
+
 body{
   font-family:'Open Sans';
   background-color: #efefef;
+}
+
+#root{
+  display: flex;
+  flex-direction: column;
 }

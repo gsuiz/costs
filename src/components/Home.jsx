@@ -1,6 +1,6 @@
 
 export default () => {
     return (
-        null
+        <p>olá</p>
     )
 }
