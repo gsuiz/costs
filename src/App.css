@@ -37,7 +37,7 @@
 }
 
 .navbar__links a:hover{
-    color: yellow;
+    color: var(--colorOrange);
 }
 
 .navbar__links--dropdown{
