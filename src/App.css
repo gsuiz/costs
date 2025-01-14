@@ -37,7 +37,7 @@
 }
 
 .navbar__links a:hover{
-    color: yellow;
+    color: var(--colorOrange);
 }
 
 .navbar__links--dropdown{
@@ -99,7 +99,11 @@
 }
 
 main{
+    display: flex;
+    align-items: center;
+    justify-content: center;
     flex: 1;
+    margin: 50px 0;
 }
 
 footer{
@@ -120,6 +124,10 @@ footer{
 .iconsList__item{
     font-size: 25px;
     cursor: pointer;
+
+    &:hover{
+        color: var(--colorOrange);
+    }
 }
 
 footer > p{
