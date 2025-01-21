@@ -1,7 +1,7 @@
 
 import MenuToggle from "./MenuToggle"
 import NavbarLinks from "./NavbarLinks"
-import costsLogo from "../assets/costs_logo.png"
+import costsLogo from "../../assets/costs_logo.png"
 import { Link } from "react-router-dom"
 
 
