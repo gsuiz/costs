@@ -1,6 +1,6 @@
 
 import style from './NewProject.module.css'
-import CreateProjectBtn from '../components/CreateProjectBtn'
+import SubmitButton from '../components/SubmitButton'
 import SelectCategory from '../components/SelectCategory'
 import { useState } from 'react'
 
@@ -42,7 +42,7 @@ export default () => {
                 <input className={`${style.singleForm__input} ${validationErrorClass ? style.invalidBudget : ""}`} type="text" id="budget" onClick={handleBudgetInputClick} placeholder= {invalidBudgetEntry ? 'Insira um orçamento válido. Ex: 3000' : 'Insira o orçamento total'} autoComplete='off' required/>
                 <p className={style.singleForm__description}>Selecione a categoria:</p>
                 <SelectCategory />
-                <CreateProjectBtn text="Criar Projeto"/>
+                <SubmitButton text="Criar Projeto"/>
             </form>
         </div>
     )

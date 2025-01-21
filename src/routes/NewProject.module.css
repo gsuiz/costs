@@ -27,15 +27,6 @@
     background-color: white;
 }
 
-.singleForm__button{
-    height: 35px;
-    background-color: #222;
-    color: white;
-    border: 0;
-    width: 110px;
-    cursor: pointer;
-}
-
 .invalidBudget{
     border: 1.5px solid red;
 }
