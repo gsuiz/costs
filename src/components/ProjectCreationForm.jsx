@@ -6,6 +6,7 @@ import PropTypes from 'prop-types'
 
 function ProjectCreationForm({ sendFunction,erroRemoveFunction,inputErrorState,invalidBudget,projectData,value }){
     const [project, setProject] = useState(projectData || {})
+    const circleColors = ["pinkish","bluish","greenish","yellowish"]
 
 
     const handleSubmit = (e) => {
@@ -22,7 +23,8 @@ function ProjectCreationForm({ sendFunction,erroRemoveFunction,inputErrorState,i
     const handleCategory = (e) => {
         setProject({...project, category: {
             id:e.target.value,
-            name:e.target.options[e.target.selectedIndex].text
+            name:e.target.options[e.target.selectedIndex].text,
+            color:circleColors[e.target.selectedIndex-1]
         }})
     }
 
