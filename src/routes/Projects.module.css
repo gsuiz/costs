@@ -1,0 +1,10 @@
+
+.projects{
+    width: 100vw;
+    padding: 0 8vw;
+}
+
+.projects__top{
+    display: flex;
+    justify-content: space-between;
+} 
