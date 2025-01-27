@@ -1,4 +1,5 @@
 
+import { useEffect } from 'react'
 import NavbarLinks from './NavbarLinks'
 
 export default () => {
@@ -13,7 +14,13 @@ export default () => {
         }
     }
 
-    document.addEventListener("click", removeOffCanvasMenu)
+    useEffect(() => {
+        document.addEventListener("click", removeOffCanvasMenu)
+
+        return () => {
+            document.removeEventListener("click",removeOffCanvasMenu)
+        }
+    })
 
     function handleClick(e){
         e.currentTarget.classList.toggle("clicked")
