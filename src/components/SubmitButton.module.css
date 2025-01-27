@@ -5,6 +5,7 @@
     border: 0;
     width: 110px;
     cursor: pointer;
+    font-size: 15px;
 }
 
 .submitButton--enlarged{

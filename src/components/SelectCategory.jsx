@@ -2,7 +2,7 @@
 import style from '../routes/NewProject.module.css'
 import { useState,useEffect } from 'react'
 
-export default () => {
+export default ({ handleCategory,value }) => {
     const [categories, setCategories] = useState([])
 
     useEffect(() => {
@@ -15,7 +15,7 @@ export default () => {
     },[])
 
     return (
-        <select className={style.singleForm__select} id="category" defaultValue="" required>
+        <select className={style.singleForm__select} id="category" onChange={handleCategory} value={value} required>
             <option value="" disabled>Selecione uma opção:</option>
             {categories.map(item => <option value={item.name} key={item.id}>{item.name}</option>)}
         </select>
