@@ -3,6 +3,7 @@ import { createBrowserRouter } from "react-router-dom"
 import App from "./App"
 import Home from "./routes/Home"
 import NewProject from "./routes/NewProject"
+import Projects from "./routes/Projects"
 
 export default () => createBrowserRouter([
     {
@@ -16,6 +17,10 @@ export default () => createBrowserRouter([
             {
                 path:"/novoprojeto",
                 element: <NewProject/>
+            },
+            {
+                path:"/projetos",
+                element:<Projects/>
             }
         ]
     }
