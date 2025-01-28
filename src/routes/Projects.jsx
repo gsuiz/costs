@@ -8,7 +8,23 @@ import { MdEdit } from "react-icons/md";
 
 function Projects(){
     const [projects, setProjects] = useState([])
-    const variavel = 'kkk'
+
+    const handleDeleteClick = async(e) => {
+        try{
+            const nameProject = e.currentTarget.parentElement.parentElement.querySelector("#name").textContent
+            const projectToDelete = projects.find(item => item.name === nameProject)
+
+            const response = await fetch("http://localhost:5000/projects",{
+                method:"DELETE",
+                headers:{
+                    'content-type':'application/json'
+                },
+                body:JSON.stringify(projectToDelete)
+            })
+        } catch(err){
+            console.log(`ERROR IN DELETE:${err}`)
+        }
+    }   
 
     useEffect(() => {
         const requestProjects = async() => {
@@ -38,7 +54,7 @@ function Projects(){
                     <ul className={style.projects__list}>
                         {projects.map(item => 
                             <li className={style.projects__single} key={item.id}>
-                                <div className={style.single__name}>{item.name}</div>
+                                <div className={style.single__name} id="name">{item.name}</div>
                                 <p><strong>Orçamento:</strong> R${item.budget}</p>
                                 <p>
                                     <span className={`${style.single__coloredCircle} ${style[`single__coloredCircle--${item.category.color}`]}`}></span>
@@ -46,7 +62,7 @@ function Projects(){
                                  </p>
                                 <div className={style.single__buttons}>
                                     <button className={style.single__editBtn}><MdEdit/> Editar</button>
-                                    <button className={style.single__deleteBtn}><FaTrashAlt/> Excluir</button>
+                                    <button className={style.single__deleteBtn} onClick={handleDeleteClick}><FaTrashAlt/> Excluir</button>
                                 </div>
                             </li>
                         )}

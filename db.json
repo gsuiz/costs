@@ -1,6 +1,17 @@
 {
   "projects": [
-    
+    {
+      "id": "afe8",
+      "name": "projeto de teste",
+      "budget": "22222",
+      "category": {
+        "id": "Desenvolvimento",
+        "name": "Desenvolvimento",
+        "color": "bluish"
+      },
+      "costs": 0,
+      "service": []
+    }
   ],
   "categories": [
     {
