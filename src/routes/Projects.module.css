@@ -82,7 +82,7 @@
     gap: 15px;
 }
 
-.single__editBtn,.single__deleteBtn{
+.single__editBtn{
     display: flex;
     align-items: center;
     justify-content: center;

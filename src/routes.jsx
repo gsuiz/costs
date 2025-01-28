@@ -4,6 +4,7 @@ import App from "./App"
 import Home from "./routes/Home"
 import NewProject from "./routes/NewProject"
 import Projects from "./routes/Projects"
+import EditProject from "./routes/EditProject"
 
 export default () => createBrowserRouter([
     {
@@ -21,6 +22,10 @@ export default () => createBrowserRouter([
             {
                 path:"/projetos",
                 element:<Projects/>
+            },
+            {
+                path:"/projetos/:index",
+                element:<EditProject/>
             }
         ]
     }

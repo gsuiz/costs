@@ -137,3 +137,7 @@ footer > p{
         font-weight: bold;
     }
 }
+
+a{
+    text-decoration: none;
+}
