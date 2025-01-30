@@ -8,6 +8,7 @@ import { MdEdit } from "react-icons/md";
 
 function Projects(){
     const [projects, setProjects] = useState([])
+    const [projectAddition,setProjectAddition] = useState(false)
 
     const handleDeleteClick = async(e) => {
         try{
@@ -49,6 +50,9 @@ function Projects(){
                     <SubmitButton text="Criar projeto"></SubmitButton>
                 </Link>
             </div>
+
+            {projectAddition && <div className={style.successMessage}>Projeto criado com sucesso!</div>}
+
             {projects.length 
                 ? 
                     <ul className={style.projects__list}>
