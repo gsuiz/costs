@@ -48,7 +48,7 @@ function Projects(){
                     <SubmitButton text="Criar projeto"></SubmitButton>
                 </Link>
             </div>
-            {projects.length 
+            {projects.length
                 ? 
                     <ul className={style.projects__list}>
                         {projects.map(item => 
@@ -56,8 +56,8 @@ function Projects(){
                                 <h1 className={style.single__name} id="name">{item.name}</h1>
                                 <p><strong>Orçamento:</strong> R${item.budget}</p>
                                 <p>
-                                    <span className={`${style.single__coloredCircle} ${style[`single__coloredCircle--${item.category.color}`]}`}></span>
-                                    {item.category.name}
+                                    <span className={`${style.single__coloredCircle} ${style[`single__coloredCircle--${item.category?.color}`]}`}></span>
+                                    {item.category?.name}
                                  </p>
                                 <div className={style.single__buttons}>
                                     <Link to={`/projetos/${item.id}`}><button className={style.single__editBtn}><MdEdit/> Editar</button></Link>

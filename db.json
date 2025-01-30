@@ -1,24 +1,15 @@
 {
   "projects": [
     {
-      "id": "95d7",
-      "name": "projeto para desmanche de ford gt",
-      "budget": "32423",
+      "id": "69b9",
+      "name": "projeto de teste ",
+      "budget": "23321",
       "category": {
-        "id": 2,
-        "name": "Desenvolvimento",
-        "color": "bluish"
+        "id": "2",
+        "name": "Desenvolvimento"
       },
-      "costs": 0,
-      "services": [
-        {
-          "name": "pintar ela de verde",
-          "cost": "8999",
-          "description": "da cor do verdão nékkkkk",
-          "id": "87feb3a2-fff2-4cd9-86ed-76bdbe443d0a"
-        }
-      ],
-      "cost": null
+      "cost": 0,
+      "services": []
     }
   ],
   "categories": [
