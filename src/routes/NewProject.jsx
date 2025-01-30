@@ -25,7 +25,7 @@ export default () => {
             const submitForm = async(projects) => {
                 try{
                     projects.costs = 0
-                    projects.service = []
+                    projects.services = []
 
                     const response = await fetch("http://localhost:5000/projects", {
                         method:"POST",

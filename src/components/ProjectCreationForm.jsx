@@ -22,7 +22,7 @@ function ProjectCreationForm({ sendFunction,erroRemoveFunction,inputErrorState,i
 
     const handleCategory = (e) => {
         setProject({...project, category: {
-            id:e.target.value,
+            id:e.target.selectedIndex,
             name:e.target.options[e.target.selectedIndex].text,
             color:circleColors[e.target.selectedIndex-1]
         }})
