@@ -3,7 +3,6 @@ import style from './NewProject.module.css'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import ProjectCreationForm from '../components/ProjectCreationForm'
-import SubmitButton from '../components/SubmitButton'
 
 export default () => {
 
