@@ -7,6 +7,12 @@
 .project{
     display: flex;
     justify-content: space-between;
+    flex-direction: column;
+}
+
+.project__infor{
+    display: flex;
+    justify-content: space-between;
 }
 
 .infor__name{
@@ -14,6 +20,10 @@
     color: #ffbb33;
     font-weight: bold;
     padding: 12px;
+}
+
+.project__editForm{
+    margin: 30px 0;
 }
 
 .infor__list{

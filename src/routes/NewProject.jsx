@@ -3,6 +3,7 @@ import style from './NewProject.module.css'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import ProjectCreationForm from '../components/ProjectCreationForm'
+import SubmitButton from '../components/SubmitButton'
 
 export default () => {
 
@@ -53,10 +54,9 @@ export default () => {
             <h1 className={style.creationForm__title}>Criar Projeto</h1>
             <p className={style.creationForm__description}>Crie seu projeto para depois adicionar os serviços</p>
             <ProjectCreationForm 
-                sendFunction={postRequest} 
-                erroRemoveFunction={handleBudgetInputClick}
-                inputErrorState={validationErrorClass}
-                invalidBudget={invalidBudgetEntry}
+                functions = { [postRequest,handleBudgetInputClick] }
+                states = { [invalidBudgetEntry,validationErrorClass] }
+                buttonText="Criar Projeto"
             />
         </div>
     )

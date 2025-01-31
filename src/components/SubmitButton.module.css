@@ -3,9 +3,10 @@
     background-color: #222;
     color: white;
     border: 0;
-    width: 110px;
+    width: max-content;
     cursor: pointer;
     font-size: 15px;
+    padding: 0 7px;
 }
 
 .submitButton--enlarged{

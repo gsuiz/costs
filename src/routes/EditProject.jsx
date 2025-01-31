@@ -3,12 +3,14 @@ import SubmitButton from "../components/SubmitButton"
 import DeleteButton from "../components/DeleteButton"
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
+import ProjectCreationForm from "../components/ProjectCreationForm"
 
 const EditProject = () => {
     const { id } = useParams()
     const [project,setProject] = useState({})
     const [services,setServices] = useState([])
     const [addService,setAddService] = useState(false)
+    const [editProject,setEditProject] = useState(false)
 
     useEffect(() => {
         const requestProject = async() => {
@@ -24,23 +26,31 @@ const EditProject = () => {
     useEffect(() => setServices(project.services || []),[project])
 
     const handleChangeFromAddingServices = () => addService ? setAddService(false) : setAddService(true)
-
-    const handleDeleteClick = () => {
-        console.log("nçãsadz")
-    }
+    const handleChangeFromEditProject = () => editProject ? setEditProject(false) : setEditProject(true)
 
     return (
         <div className={style.editProject}>
             <div className={style.project}>
                 <div className={style.project__infor}>
                     <h1 className={style.infor__name}>Projeto: {project.name}</h1>
-                    <ul className={style.infor__list}>
-                        <li><span>Categoria:</span> {project.category?.name}</li>
-                        <li><span>Total do Orçamento:</span> R${project.budget}</li>
-                        <li><span>Total utilizado:</span> R${project.costs}</li>
-                    </ul>
+                    {editProject 
+                        ?
+                            <SubmitButton text="Fechar" handle={handleChangeFromEditProject}/>
+                        :
+                            <SubmitButton text="Editar Projeto" handle={handleChangeFromEditProject}/> 
+                    }
                 </div>
-                <SubmitButton text="Editar Projeto"/>
+                {editProject 
+                    ?
+                        <ProjectCreationForm outerClass="project__editForm" buttonText="Concluir edição"/>
+                    :
+                        <ul className={style.infor__list}>
+                            <li><span>Categoria:</span> {project.category?.name}</li>
+                            <li><span>Total do Orçamento:</span> R${project.budget}</li>
+                            <li><span>Total utilizado:</span> R${project.costs}</li>
+                        </ul>
+
+                }
             </div>
             <hr />
             <div className={style.addService}>
