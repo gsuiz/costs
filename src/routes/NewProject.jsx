@@ -39,7 +39,6 @@ export default () => {
  
                     navigate("/projetos")
 
-                    console.log(projects)
                 } catch(err){
                     console.log(err)
                 }

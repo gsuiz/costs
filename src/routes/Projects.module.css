@@ -7,4 +7,104 @@
 .projects__top{
     display: flex;
     justify-content: space-between;
-} 
+}
+
+.projects__list{
+    display: flex;
+    list-style: none;
+    gap: 10px;
+    margin-top: 40px;
+    flex-wrap: wrap;
+}
+
+.projects__single{
+    width: 290px;
+    padding: 15px;
+    border: 1.5px solid rgb(122, 122, 122);
+    border-radius: 5px;
+}
+
+.projects__alert{
+    margin-top: 30px;
+    font-size: 20px;
+}
+
+.single__name{
+    background-color: rgb(34, 34, 34);
+    color: #ffbb33;
+    font-weight: bold;
+    font-size: 21px;
+    padding: 7px;
+}
+
+.single__coloredCircle{
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: black;
+    margin: 0 10px;
+}
+
+.single__coloredCircle--pinkish{
+    background-color: rgb(255, 174, 188);
+}
+
+.single__coloredCircle--bluish{
+    background-color: rgb(160, 231, 229);
+}
+
+.single__coloredCircle--greenish{
+    background-color: rgb(180, 248, 200);
+}
+
+.single__coloredCircle--yellowish{
+    background-color: rgb(251, 231, 198);
+}
+
+
+.projects__single p{
+    margin: 20px 0;
+    color: rgb(116, 116, 116);
+}
+
+.projects__single button{
+    width: 95px;
+    height: 37px;
+    border-radius: 0;
+    border: 1px solid black;
+    background-color: white;
+    font-size: 14px;
+}
+
+.single__buttons{
+    display: flex;
+    gap: 15px;
+}
+
+.single__editBtn,.single__deleteBtn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    transition: .5s;
+    cursor: pointer;
+
+    &:hover{
+        background-color: rgb(34, 34, 34);
+        color: #ffbb33;
+    }
+}
+
+.successMessage{
+    width: 100%;
+    height: 55px;
+    margin: 30px 0;
+    color: #155724;
+    border: 1px solid #a1f3b4;
+    border-radius: 5px;
+    background-color: #d4edda;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
