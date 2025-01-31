@@ -1,5 +1,5 @@
 
-import style from '../routes/NewProject.module.css'
+import style from '../components/ProjectCreationForm.module.css'
 import { useState,useEffect } from 'react'
 
 export default ({ handleCategory,value }) => {

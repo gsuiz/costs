@@ -1,0 +1,45 @@
+
+.singleForm{
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.singleForm__description{
+    font-weight: bold;
+}
+
+.singleForm__input,
+.singleForm__select{
+    height: 35px;
+    outline: 0;
+    border: none;
+    padding-left: 10px;
+    background-color: white;
+}
+
+.invalidBudget{
+    border: 1.5px solid red;
+}
+
+.invalidBudget::placeholder{
+    color: red;
+    opacity: .7;
+}
+
+.project__editForm{
+    margin: 50px 0;
+    width: 100%;
+}
+
+
+@media screen and (max-width:600px) {
+    .singleForm__description{
+        font-size: 20px;
+    }
+
+    .singleForm__input,
+    .singleForm__select{
+        height: 45px;
+    }
+}

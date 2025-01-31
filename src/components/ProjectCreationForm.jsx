@@ -1,14 +1,15 @@
 import { useState } from 'react'
-import style from '../routes/NewProject.module.css'
+import style from '../components/ProjectCreationForm.module.css'
 import SelectCategory from './SelectCategory'
 import SubmitButton from './SubmitButton'
 import PropTypes from 'prop-types'
 
-function ProjectCreationForm({ sendFunction,erroRemoveFunction,inputErrorState,invalidBudget,projectData,value }){
+function ProjectCreationForm({ functions=[], states=[],projectData,outerClass, buttonText }){
+    const [ sendFunction,erroRemoveFunction ] = functions
+    const [ inputErrorState,invalidBudget ] = states
+     
     const [project, setProject] = useState(projectData || {})
     const circleColors = ["pinkish","bluish","greenish","yellowish"]
-
-
     const handleSubmit = (e) => {
         e.preventDefault()
         const budgetInput = e.currentTarget.querySelector("#budget")
@@ -22,14 +23,14 @@ function ProjectCreationForm({ sendFunction,erroRemoveFunction,inputErrorState,i
 
     const handleCategory = (e) => {
         setProject({...project, category: {
-            id:e.target.value,
+            id:e.target.selectedIndex,
             name:e.target.options[e.target.selectedIndex].text,
             color:circleColors[e.target.selectedIndex-1]
         }})
     }
 
     return (
-        <form className={style.singleForm} onSubmit={handleSubmit}>
+        <form className={`${style.singleForm} ${style[outerClass]}`} onSubmit={handleSubmit}>
             <p className={style.singleForm__description}>Nome do projeto:</p>
             <input 
                 className={style.singleForm__input} 
@@ -57,16 +58,16 @@ function ProjectCreationForm({ sendFunction,erroRemoveFunction,inputErrorState,i
             />
             <p className={style.singleForm__description}>Selecione a categoria:</p>
             <SelectCategory handleCategory={handleCategory} value={project.category ? project.category.id : ""}/>
-            <SubmitButton text="Criar Projeto"/>
+            <SubmitButton text={buttonText}/>
         </form>
     )
 }
 
 ProjectCreationForm.propTypes = {
-    sendFunction: PropTypes.func,
-    erroRemoveFunction:PropTypes.func,
-    inputErrorState:PropTypes.bool,
-    invalidBudget:PropTypes.bool
+    functions:PropTypes.array,
+    states:PropTypes.array,
+    outerClass:PropTypes.string,
+    buttonText:PropTypes.string
 }
 
 export default ProjectCreationForm

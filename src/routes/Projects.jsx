@@ -2,9 +2,8 @@ import { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
 import SubmitButton from "../components/SubmitButton"
 import style from "./Projects.module.css"
-import { FaTrashAlt } from "react-icons/fa";
 import { MdEdit } from "react-icons/md";
-
+import DeleteButton from "../components/DeleteButton";
 
 function Projects(){
     const [projects, setProjects] = useState([])
@@ -58,15 +57,15 @@ function Projects(){
                     <ul className={style.projects__list}>
                         {projects.map(item => 
                             <li className={style.projects__single} key={item.id}>
-                                <div className={style.single__name} id="name">{item.name}</div>
+                                <h1 className={style.single__name} id="name">{item.name}</h1>
                                 <p><strong>Orçamento:</strong> R${item.budget}</p>
                                 <p>
-                                    <span className={`${style.single__coloredCircle} ${style[`single__coloredCircle--${item.category.color}`]}`}></span>
-                                    {item.category.name}
+                                    <span className={`${style.single__coloredCircle} ${style[`single__coloredCircle--${item.category?.color}`]}`}></span>
+                                    {item.category?.name}
                                  </p>
                                 <div className={style.single__buttons}>
-                                    <button className={style.single__editBtn}><MdEdit/> Editar</button>
-                                    <button className={style.single__deleteBtn} onClick={handleDeleteClick}><FaTrashAlt/> Excluir</button>
+                                    <Link to={`/projetos/${item.id}`}><button className={style.single__editBtn}><MdEdit/> Editar</button></Link>
+                                    <DeleteButton handle={handleDeleteClick}/>
                                 </div>
                             </li>
                         )}

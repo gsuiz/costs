@@ -25,7 +25,7 @@ export default () => {
             const submitForm = async(projects) => {
                 try{
                     projects.costs = 0
-                    projects.service = []
+                    projects.services = []
 
                     const response = await fetch("http://localhost:5000/projects", {
                         method:"POST",
@@ -53,10 +53,9 @@ export default () => {
             <h1 className={style.creationForm__title}>Criar Projeto</h1>
             <p className={style.creationForm__description}>Crie seu projeto para depois adicionar os serviços</p>
             <ProjectCreationForm 
-                sendFunction={postRequest} 
-                erroRemoveFunction={handleBudgetInputClick}
-                inputErrorState={validationErrorClass}
-                invalidBudget={invalidBudgetEntry}
+                functions = { [postRequest,handleBudgetInputClick] }
+                states = { [invalidBudgetEntry,validationErrorClass] }
+                buttonText="Criar Projeto"
             />
         </div>
     )

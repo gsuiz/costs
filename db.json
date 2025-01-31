@@ -1,16 +1,15 @@
 {
   "projects": [
     {
-      "id": "0d71",
-      "name": "projeto ufopa amanhã",
-      "budget": "99999",
+      "id": "69b9",
+      "name": "projeto de teste ",
+      "budget": "23321",
       "category": {
-        "id": "Design",
-        "name": "Design",
-        "color": "greenish"
+        "id": "2",
+        "name": "Desenvolvimento"
       },
-      "costs": 0,
-      "service": []
+      "cost": 0,
+      "services": []
     }
   ],
   "categories": [
