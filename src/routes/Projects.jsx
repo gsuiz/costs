@@ -73,6 +73,7 @@ function Projects(){
                     </ul>
                 :
                     <p className={style.projects__alert}>Não há projetos cadastrados!</p>
+
             }
         </div>
     )
