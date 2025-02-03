@@ -4,6 +4,7 @@ import DeleteButton from "../components/DeleteButton"
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 import ProjectCreationForm from "../components/ProjectCreationForm"
+import ServiceAdditionForm from "../components/ServiceAdditionForm"
 
 const EditProject = () => {
     const { id } = useParams()
@@ -16,7 +17,7 @@ const EditProject = () => {
         const requestProject = async() => {
             const response = await fetch("http://localhost:5000/projects")
             const data = await response.json()
-
+            
             setProject(() => data.find(item => item.id === id))
         }
         
@@ -69,17 +70,7 @@ const EditProject = () => {
                      }
                 </div>
                 {addService && (
-                    <>
-                        <form className={style.addService__form}>
-                            <p>Nome do serviço:</p>
-                            <input type="text" id="nameService" className={style.addService__input} placeholder="Insira o nome do serviço" />
-                            <p>Custo do serviço:</p>
-                            <input type="text" id="serviceCost" className={style.addService__input} placeholder="Insira o valor total"/>
-                            <p>Descrição do projeto:</p>
-                            <input type="text" id="serviceDescription" className={style.addService__input} placeholder="Descreva o serviço"/>
-                        </form>
-                        <SubmitButton text="Adicionar Serviço" modifier="submitButton--enlarged"/>
-                    </>
+                    <ServiceAdditionForm/>
                 )}
             </div>
             <hr />
