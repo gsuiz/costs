@@ -25,6 +25,10 @@ const EditProject = () => {
     
     useEffect(() => setServices(project.services || []),[project])
 
+    const teste = () => {
+        console.log("funcionou porra1")
+    } // onde vai a interação com o servidor para editar o projeto
+
     const handleChangeFromAddingServices = () => addService ? setAddService(false) : setAddService(true)
     const handleChangeFromEditProject = () => editProject ? setEditProject(false) : setEditProject(true)
 
@@ -42,7 +46,7 @@ const EditProject = () => {
                 </div>
                 {editProject 
                     ?
-                        <ProjectCreationForm outerClass="project__editForm" buttonText="Concluir edição"/>
+                        <ProjectCreationForm formRequest={teste} outerClass="project__editForm" buttonText="Concluir edição"/>
                     :
                         <ul className={style.infor__list}>
                             <li><span>Categoria:</span> {project.category?.name}</li>
