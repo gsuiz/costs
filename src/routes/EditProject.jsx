@@ -30,20 +30,15 @@ const EditProject = () => {
         console.log("funcionou porra1")
     } // onde vai a interação com o servidor para editar o projeto
 
-    const handleChangeFromAddingServices = () => addService ? setAddService(false) : setAddService(true)
-    const handleChangeFromEditProject = () => editProject ? setEditProject(false) : setEditProject(true)
+    const toggleAddingServices = () => addService ? setAddService(false) : setAddService(true)
+    const toggleFromEditProject = () => editProject ? setEditProject(false) : setEditProject(true)
 
     return (
         <div className={style.editProject}>
             <div className={style.project}>
                 <div className={style.project__infor}>
                     <h1 className={style.infor__name}>Projeto: {project.name}</h1>
-                    {editProject 
-                        ?
-                            <SubmitButton text="Fechar" handle={handleChangeFromEditProject}/>
-                        :
-                            <SubmitButton text="Editar Projeto" handle={handleChangeFromEditProject}/> 
-                    }
+                    <SubmitButton text={editProject ? "Fechar" : "Editar Projeto"} handle={toggleFromEditProject}/>
                 </div>
                 {editProject 
                     ?
@@ -61,17 +56,9 @@ const EditProject = () => {
             <div className={style.addService}>
                 <div className={style.addService__visibleElement}>
                     <h2>Adicione um serviço:</h2>
-                    { 
-                    !addService 
-                        ?   
-                            <SubmitButton handle={handleChangeFromAddingServices} text="Adicionar Serviço" modifier="submitButton--enlarged"/>
-                        :
-                            <SubmitButton handle={handleChangeFromAddingServices} text="Fechar"/>   
-                     }
+                    <SubmitButton handle={toggleAddingServices} text={addService ? "Fechar" : "Adicionar Serviço" } />
                 </div>
-                {addService && (
-                    <ServiceAdditionForm/>
-                )}
+                {addService && <ServiceAdditionForm/>}
             </div>
             <hr />
             <div className={style.services}>
