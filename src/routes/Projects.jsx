@@ -7,6 +7,7 @@ import DeleteButton from "../components/DeleteButton";
 
 function Projects(){
     const [projects, setProjects] = useState([])
+    const [projectAddition,setProjectAddition] = useState(false)
 
     const handleDeleteClick = async(e) => {
         try{
@@ -48,7 +49,10 @@ function Projects(){
                     <SubmitButton text="Criar projeto"></SubmitButton>
                 </Link>
             </div>
-            {projects.length
+
+            {projectAddition && <div className={style.successMessage}>Projeto criado com sucesso!</div>}
+
+            {projects.length 
                 ? 
                     <ul className={style.projects__list}>
                         {projects.map(item => 
@@ -68,6 +72,7 @@ function Projects(){
                     </ul>
                 :
                     <p className={style.projects__alert}>Não há projetos cadastrados!</p>
+
             }
         </div>
     )
