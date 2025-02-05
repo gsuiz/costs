@@ -4,17 +4,24 @@ import SelectCategory from './SelectCategory'
 import SubmitButton from './SubmitButton'
 import PropTypes from 'prop-types'
 
-function ProjectCreationForm({ functions=[], states=[],projectData,outerClass, buttonText }){
-    const [ sendFunction,erroRemoveFunction ] = functions
-    const [ inputErrorState,invalidBudget ] = states
-     
+function ProjectCreationForm({ formRequest,projectData,outerClass,buttonText }){
+    const [invalidBudgetEntry,setBudgetEntry] = useState(false)
     const [project, setProject] = useState(projectData || {})
     const circleColors = ["pinkish","bluish","greenish","yellowish"]
+
     const handleSubmit = (e) => {
         e.preventDefault()
         const budgetInput = e.currentTarget.querySelector("#budget")
 
-        sendFunction(budgetInput,project)
+        const regex = /^[1-9]\d*$/
+        const normalizedBudgetValue = Number(budgetInput.value)
+
+        if(!regex.test(normalizedBudgetValue)){
+            budgetInput.value = ""
+            setBudgetEntry(true)
+        } else {
+            formRequest(budgetInput,project)
+        }
     }
 
     const handleChange = (e) => {
@@ -28,6 +35,8 @@ function ProjectCreationForm({ functions=[], states=[],projectData,outerClass, b
             color:circleColors[e.target.selectedIndex-1]
         }})
     }
+
+    const handleBudgetInputClick = () => setBudgetEntry(false)
 
     return (
         <form className={`${style.singleForm} ${style[outerClass]}`} onSubmit={handleSubmit}>
@@ -45,14 +54,14 @@ function ProjectCreationForm({ functions=[], states=[],projectData,outerClass, b
             />
             <p className={style.singleForm__description}>Orçamento do projeto:</p> 
              <input 
-                className={`${style.singleForm__input} ${inputErrorState ? style.invalidBudget : ""}`} 
+                className={`${style.singleForm__input} ${invalidBudgetEntry ? style.invalidBudget : ""}`} 
                 onChange={handleChange}
                 type="text" 
                 name='budget'
                 id="budget" 
                 defaultValue={project.budget}
-                onClick={erroRemoveFunction}
-                placeholder={invalidBudget ? 'Insira um orçamento válido. Ex: 3000' : 'Insira o orçamento total'} 
+                onClick={handleBudgetInputClick}
+                placeholder={invalidBudgetEntry ? 'Insira um orçamento válido. Ex: 3000' : 'Insira o orçamento total'} 
                 autoComplete='off' 
                 required
             />
@@ -64,8 +73,8 @@ function ProjectCreationForm({ functions=[], states=[],projectData,outerClass, b
 }
 
 ProjectCreationForm.propTypes = {
-    functions:PropTypes.array,
-    states:PropTypes.array,
+    formRequest:PropTypes.func,
+    projectData:PropTypes.object,
     outerClass:PropTypes.string,
     buttonText:PropTypes.string
 }

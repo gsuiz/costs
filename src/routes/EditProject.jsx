@@ -4,6 +4,7 @@ import DeleteButton from "../components/DeleteButton"
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 import ProjectCreationForm from "../components/ProjectCreationForm"
+import ServiceAdditionForm from "../components/ServiceAdditionForm"
 
 const EditProject = () => {
     const { id } = useParams()
@@ -16,7 +17,7 @@ const EditProject = () => {
         const requestProject = async() => {
             const response = await fetch("http://localhost:5000/projects")
             const data = await response.json()
-
+            
             setProject(() => data.find(item => item.id === id))
         }
         
@@ -25,24 +26,23 @@ const EditProject = () => {
     
     useEffect(() => setServices(project.services || []),[project])
 
-    const handleChangeFromAddingServices = () => addService ? setAddService(false) : setAddService(true)
-    const handleChangeFromEditProject = () => editProject ? setEditProject(false) : setEditProject(true)
+    const teste = () => {
+        console.log("funcionou porra1")
+    } // onde vai a interação com o servidor para editar o projeto
+
+    const toggleAddingServices = () => addService ? setAddService(false) : setAddService(true)
+    const toggleFromEditProject = () => editProject ? setEditProject(false) : setEditProject(true)
 
     return (
         <div className={style.editProject}>
             <div className={style.project}>
                 <div className={style.project__infor}>
                     <h1 className={style.infor__name}>Projeto: {project.name}</h1>
-                    {editProject 
-                        ?
-                            <SubmitButton text="Fechar" handle={handleChangeFromEditProject}/>
-                        :
-                            <SubmitButton text="Editar Projeto" handle={handleChangeFromEditProject}/> 
-                    }
+                    <SubmitButton text={editProject ? "Fechar" : "Editar Projeto"} handle={toggleFromEditProject}/>
                 </div>
                 {editProject 
                     ?
-                        <ProjectCreationForm outerClass="project__editForm" buttonText="Concluir edição"/>
+                        <ProjectCreationForm formRequest={teste} outerClass="project__editForm" buttonText="Concluir edição"/>
                     :
                         <ul className={style.infor__list}>
                             <li><span>Categoria:</span> {project.category?.name}</li>
@@ -56,27 +56,9 @@ const EditProject = () => {
             <div className={style.addService}>
                 <div className={style.addService__visibleElement}>
                     <h2>Adicione um serviço:</h2>
-                    { 
-                    !addService 
-                        ?   
-                            <SubmitButton handle={handleChangeFromAddingServices} text="Adicionar Serviço" modifier="submitButton--enlarged"/>
-                        :
-                            <SubmitButton handle={handleChangeFromAddingServices} text="Fechar"/>   
-                     }
+                    <SubmitButton handle={toggleAddingServices} text={addService ? "Fechar" : "Adicionar Serviço" } />
                 </div>
-                {addService && (
-                    <>
-                        <form className={style.addService__form}>
-                            <p>Nome do serviço:</p>
-                            <input type="text" id="nameService" className={style.addService__input} placeholder="Insira o nome do serviço" />
-                            <p>Custo do serviço:</p>
-                            <input type="text" id="serviceCost" className={style.addService__input} placeholder="Insira o valor total"/>
-                            <p>Descrição do projeto:</p>
-                            <input type="text" id="serviceDescription" className={style.addService__input} placeholder="Descreva o serviço"/>
-                        </form>
-                        <SubmitButton text="Adicionar Serviço" modifier="submitButton--enlarged"/>
-                    </>
-                )}
+                {addService && <ServiceAdditionForm/>}
             </div>
             <hr />
             <div className={style.services}>

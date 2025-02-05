@@ -10,6 +10,30 @@
       },
       "cost": 0,
       "services": []
+    },
+    {
+      "id": "d6da",
+      "name": "projeto de camaro",
+      "budget": "300000",
+      "category": {
+        "id": 3,
+        "name": "Design",
+        "color": "greenish"
+      },
+      "costs": 0,
+      "services": []
+    },
+    {
+      "id": "d1b1",
+      "name": "projeto da onda mane",
+      "budget": "99999",
+      "category": {
+        "id": 4,
+        "name": "Planejamento",
+        "color": "yellowish"
+      },
+      "costs": 0,
+      "services": []
     }
   ],
   "categories": [
