@@ -1,13 +1,23 @@
 import { useEffect, useState } from "react"
-import { Link } from "react-router-dom"
+import { Link,useLocation } from "react-router-dom"
 import SubmitButton from "../components/SubmitButton"
 import style from "./Projects.module.css"
 import { MdEdit } from "react-icons/md";
 import DeleteButton from "../components/DeleteButton";
+import Message from "../components/Message";
 
 function Projects(){
     const [projects, setProjects] = useState([])
-    const [projectAddition,setProjectAddition] = useState(false)
+    const [message, setMessage] = useState("")
+
+    const location = useLocation()
+
+    useEffect(() => {
+        if (location.state) {
+            setMessage(location.state.message)
+        }
+    }, [location.state])
+
 
     const handleDeleteClick = async(e) => {
         try{
@@ -38,10 +48,10 @@ function Projects(){
             }
         }
 
-        requestProjects()
+        requestProjects() 
     },[])
 
-    return (
+    return ( 
         <div className={style.projects}>
             <div className={style.projects__top}>
                 <h1>Meus projetos</h1>
@@ -50,9 +60,9 @@ function Projects(){
                 </Link>
             </div>
 
-            {projectAddition && <div className={style.successMessage}>Projeto criado com sucesso!</div>}
+            <Message text={message} type="success"/>
 
-            {projects.length 
+            {projects.length  
                 ? 
                     <ul className={style.projects__list}>
                         {projects.map(item => 

@@ -1,20 +1,9 @@
 {
   "projects": [
     {
-      "id": "69b9",
-      "name": "projeto de teste ",
-      "budget": "23321",
-      "category": {
-        "id": "2",
-        "name": "Desenvolvimento"
-      },
-      "cost": 0,
-      "services": []
-    },
-    {
-      "id": "d6da",
-      "name": "projeto de camaro",
-      "budget": "300000",
+      "id": "5f70",
+      "name": "projeto de cachorro morto",
+      "budget": "343423",
       "category": {
         "id": 3,
         "name": "Design",
@@ -24,13 +13,13 @@
       "services": []
     },
     {
-      "id": "d1b1",
-      "name": "projeto da onda mane",
-      "budget": "99999",
+      "id": "0b81",
+      "name": "projeto do amaral",
+      "budget": "3231432",
       "category": {
-        "id": 4,
-        "name": "Planejamento",
-        "color": "yellowish"
+        "id": 3,
+        "name": "Design",
+        "color": "greenish"
       },
       "costs": 0,
       "services": []
