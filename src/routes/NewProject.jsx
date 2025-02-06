@@ -22,7 +22,7 @@ export default () => {
             
             const data = await response.json()
 
-            navigate("/projetos")
+            navigate("/projetos", { state: { message: "Projeto criado com sucesso!" } })
 
         } catch(err){
             console.log(err)

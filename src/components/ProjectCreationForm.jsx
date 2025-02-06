@@ -20,7 +20,7 @@ function ProjectCreationForm({ formRequest,projectData,outerClass,buttonText }){
             budgetInput.value = ""
             setBudgetEntry(true)
         } else {
-            formRequest(budgetInput,project)
+            formRequest(project)
         }
     }
 
