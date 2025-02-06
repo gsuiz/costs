@@ -5,10 +5,12 @@ import style from "./Projects.module.css"
 import { MdEdit } from "react-icons/md";
 import DeleteButton from "../components/DeleteButton";
 import Message from "../components/Message";
+import Loading from "../components/Loading"
 
 function Projects(){
     const [projects, setProjects] = useState([])
     const [message, setMessage] = useState("")
+    const [showLoading, setShowLoading] = useState(true)
 
     const location = useLocation()
 
@@ -49,6 +51,7 @@ function Projects(){
         }
 
         requestProjects() 
+        setTimeout(() => setShowLoading(false) ,200)
     },[])
 
     return ( 
@@ -62,7 +65,8 @@ function Projects(){
 
             <Message text={message} type="success"/>
 
-            {projects.length  
+
+            {projects.length  && !showLoading
                 ? 
                     <ul className={style.projects__list}>
                         {projects.map(item => 
@@ -81,9 +85,10 @@ function Projects(){
                         )}
                     </ul>
                 :
-                    <p className={style.projects__alert}>Não há projetos cadastrados!</p>
-
+                <p className={style.projects__alert}>Não há projetos cadastrados!</p>
             }
+
+            {showLoading && <Loading/>}
         </div>
     )
 }

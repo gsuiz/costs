@@ -23,6 +23,18 @@
       },
       "costs": 0,
       "services": []
+    },
+    {
+      "id": "8844",
+      "name": "projeto de teste 33",
+      "budget": "993234",
+      "category": {
+        "id": 2,
+        "name": "Desenvolvimento",
+        "color": "bluish"
+      },
+      "costs": 0,
+      "services": []
     }
   ],
   "categories": [

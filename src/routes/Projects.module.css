@@ -4,6 +4,15 @@
     padding: 0 8vw;
 }
 
+.project__loading{
+    width: min-content;
+    margin: auto;
+}
+
+.project__loading img{
+    width: 80px;
+}
+
 .projects__top{
     display: flex;
     justify-content: space-between;
