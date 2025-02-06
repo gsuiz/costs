@@ -1,18 +1,5 @@
 {
-  "projects": [
-    {
-      "id": "0add",
-      "name": "projeto do abixa",
-      "budget": "432432423",
-      "category": {
-        "id": 1,
-        "name": "Infra",
-        "color": "pinkish"
-      },
-      "costs": 0,
-      "services": []
-    }
-  ],
+  "projects": [],
   "categories": [
     {
       "id": "1",

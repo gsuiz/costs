@@ -30,6 +30,7 @@ function Projects(){
             })                
 
             setProjects(projects.filter(item => item.id !== project.id))
+            setMessage("Projeto deletado com sucesso!")
 
         } catch(err){
             console.log(`ERROR IN PROMISE:${err}`)
@@ -61,7 +62,7 @@ function Projects(){
                 </Link>
             </div>
 
-            <Message text={message} type="success"/>
+            <Message text={message} type="success" messageUpdate={setMessage}/>
 
 
             {projects.length  && !showLoading

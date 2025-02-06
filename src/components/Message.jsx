@@ -1,7 +1,7 @@
 import styles from './Message.module.css'
 import { useState,useEffect } from 'react'
 
-const Message = ({ text,type }) => {
+const Message = ({ text,type,messageUpdate }) => {
     const [visible, setVisible] = useState(true)
 
     useEffect(() => {
@@ -13,6 +13,7 @@ const Message = ({ text,type }) => {
 
         const timeOut = setTimeout(() => {
             setVisible(false)
+            messageUpdate("")
         },3000)
 
 
