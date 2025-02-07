@@ -20,21 +20,20 @@ function Projects(){
         }
     }, [location.state])
 
+    const handleDeleteClick = async(project) => {
+        try{    
+            const response = await fetch(`http://localhost:5000/projects/${project.id}`, {
+                method: "DELETE",
+                headers: {
+                    "Content-Type": "application/json"
+                }
+            })                
 
-    const handleDeleteClick = async(e) => {
-        try{
-            const nameProject = e.currentTarget.parentElement.parentElement.querySelector("#name").textContent
-            const projectToDelete = projects.find(item => item.name === nameProject)
+            setProjects(projects.filter(item => item.id !== project.id))
+            setMessage("Projeto deletado com sucesso!")
 
-            const response = await fetch("http://localhost:5000/projects",{
-                method:"DELETE",
-                headers:{
-                    'content-type':'application/json'
-                },
-                body:JSON.stringify(projectToDelete)
-            })
         } catch(err){
-            console.log(`ERROR IN DELETE:${err}`)
+            console.log(`ERROR IN PROMISE:${err}`)
         }
     }   
 
@@ -63,7 +62,7 @@ function Projects(){
                 </Link>
             </div>
 
-            <Message text={message} type="success"/>
+            <Message text={message} type="success" messageUpdate={setMessage}/>
 
 
             {projects.length  && !showLoading
@@ -79,7 +78,7 @@ function Projects(){
                                  </p>
                                 <div className={style.single__buttons}>
                                     <Link to={`/projetos/${item.id}`}><button className={style.single__editBtn}><MdEdit/> Editar</button></Link>
-                                    <DeleteButton handle={handleDeleteClick}/>
+                                    <DeleteButton handle={() => handleDeleteClick(item)}/>
                                 </div>
                             </li>
                         )}

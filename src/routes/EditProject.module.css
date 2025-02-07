@@ -13,6 +13,7 @@
 .project__infor{
     display: flex;
     justify-content: space-between;
+    margin-top: 20px;
 }
 
 .infor__name{

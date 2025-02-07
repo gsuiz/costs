@@ -1,40 +1,18 @@
 {
   "projects": [
     {
-      "id": "5f70",
-      "name": "projeto de cachorro morto",
-      "budget": "343423",
-      "category": {
-        "id": 3,
-        "name": "Design",
-        "color": "greenish"
-      },
-      "costs": 0,
-      "services": []
-    },
-    {
-      "id": "0b81",
-      "name": "projeto do amaral",
-      "budget": "3231432",
-      "category": {
-        "id": 3,
-        "name": "Design",
-        "color": "greenish"
-      },
-      "costs": 0,
-      "services": []
-    },
-    {
-      "id": "8844",
-      "name": "projeto de teste 33",
-      "budget": "993234",
+      "id": "e491",
+      "name": "teste do ferro",
+      "budget": "83921",
       "category": {
         "id": 2,
         "name": "Desenvolvimento",
         "color": "bluish"
       },
       "costs": 0,
-      "services": []
+      "services": {
+        "name": "ffff"
+      }
     }
   ],
   "categories": [

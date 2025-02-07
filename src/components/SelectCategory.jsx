@@ -15,7 +15,7 @@ export default ({ handleCategory,value }) => {
     },[])
 
     return (
-        <select className={style.singleForm__select} id="category" onChange={handleCategory} defaultValue={value} required>
+        <select className={style.singleForm__select} id="category" onChange={handleCategory} value={value} required>
             <option value="" disabled>Selecione uma opção:</option>
             {categories.map(item => <option value={item.name} key={item.id}>{item.name}</option>)}
         </select>

@@ -66,7 +66,7 @@ function ProjectCreationForm({ formRequest,projectData,outerClass,buttonText }){
                 required
             />
             <p className={style.singleForm__description}>Selecione a categoria:</p>
-            <SelectCategory handleCategory={handleCategory} value={project.category ? project.category.id : ""}/>
+            <SelectCategory handleCategory={handleCategory} value={project.category?.name || ""}/>
             <SubmitButton text={buttonText}/>
         </form>
     )
