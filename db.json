@@ -1,5 +1,20 @@
 {
-  "projects": [],
+  "projects": [
+    {
+      "id": "e491",
+      "name": "teste do ferro",
+      "budget": "83921",
+      "category": {
+        "id": 2,
+        "name": "Desenvolvimento",
+        "color": "bluish"
+      },
+      "costs": 0,
+      "services": {
+        "name": "ffff"
+      }
+    }
+  ],
   "categories": [
     {
       "id": "1",
