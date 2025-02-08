@@ -47,6 +47,14 @@
     flex-direction: column;
 }
 
+.addService__input.invalidCost{
+    border: 1px solid red;
+
+    &::placeholder{
+        color: red;
+    }
+}
+
 .addService__visibleElement{
     display: flex;
     justify-content: space-between;

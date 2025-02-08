@@ -10,9 +10,30 @@
         "color": "bluish"
       },
       "costs": 0,
-      "services": {
-        "name": "ffff"
-      }
+      "services": []
+    },
+    {
+      "id": "50b8",
+      "name": "projeto do arrasta pra cima",
+      "budget": "18000",
+      "category": {
+        "id": 3,
+        "name": "Design",
+        "color": "greenish"
+      },
+      "costs": 0,
+      "services": [
+        {
+          "name": "serviço de divulgação",
+          "cost": "1200",
+          "description": "marketing digital"
+        },
+        {
+          "name": "artes da divulgação",
+          "cost": "2333",
+          "description": "Pagar o design"
+        }
+      ]
     }
   ],
   "categories": [

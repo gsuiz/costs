@@ -10,7 +10,7 @@ import Message from "../components/Message"
 const EditProject = () => {
     const { id } = useParams()
     const [project,setProject] = useState({})
-    const [services,setServices] = useState([])
+    const [services,setServices] = useState()
     const [addService,setAddService] = useState(false)
     const [editProject,setEditProject] = useState(false)
     const [message,setMessage] = useState("")
@@ -22,7 +22,7 @@ const EditProject = () => {
     const updateProjectStates = (project) => {
         setNameProject(project.name)
         setCategoryProject(project.category?.name)
-        setBudgetProject(project.budget)
+        setBudgetProject(Number(project.budget))
     }
 
     useEffect(() => {
@@ -41,12 +41,8 @@ const EditProject = () => {
     
     useEffect(() => {
         updateProjectStates(project)
+        setServices(project.services)
     },[project])
-
-    useEffect(() => {
-        setProject({...project, services:services})
-        console.log(services)
-    },[services])
 
     const updateRequest = async(editedProject) => {
         try{
@@ -72,13 +68,17 @@ const EditProject = () => {
         try{
             const response = await fetch(`http://localhost:5000/projects/${project.id}`,
                 {
-                    method:"PUT",
+                    method:"PATCH",
                     headers:{
                         "Content-Type":"application/json"
                     },
-                    body: JSON.stringify(project)
+                    body: JSON.stringify({services:[...services,service]})
                 }
             )
+
+            setProject((state) => {
+                return {...state, services:[...services,service]}
+            })
         } catch(err){
             console.error(`Erro na adição de serviço:${err}`)
         }
@@ -113,12 +113,12 @@ const EditProject = () => {
                     <h2>Adicione um serviço:</h2>
                     <SubmitButton handle={toggleAddingServices} text={addService ? "Fechar" : "Adicionar Serviço" } />
                 </div>
-                {addService && <ServiceAdditionForm addService={addServiceRequest} setServices={setServices}/>}
+                {addService && <ServiceAdditionForm addService={addServiceRequest} budget={budgetProject}/>}
             </div>
             <hr />
             <div className={style.services}>
                 <h2>Serviços:</h2>
-                {services.length
+                {services && services.length > 0
                     ?
                         <ul className={style.services__single}>
                             {services.map((item,index) => 
