@@ -10,9 +10,13 @@
         "color": "bluish"
       },
       "costs": 0,
-      "services": {
-        "name": "ffff"
-      }
+      "services": [
+        {
+          "name": "serviço de scanner",
+          "cost": "aaaaaa",
+          "description": "colocar computador no carro e programar"
+        }
+      ]
     }
   ],
   "categories": [
