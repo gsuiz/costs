@@ -22,7 +22,7 @@ const EditProject = () => {
     const updateProjectStates = (project) => {
         setNameProject(project.name)
         setCategoryProject(project.category?.name)
-        setBudgetProject(project.budget)
+        setBudgetProject(Number(project.budget))
     }
 
     useEffect(() => {
@@ -113,7 +113,7 @@ const EditProject = () => {
                     <h2>Adicione um serviço:</h2>
                     <SubmitButton handle={toggleAddingServices} text={addService ? "Fechar" : "Adicionar Serviço" } />
                 </div>
-                {addService && <ServiceAdditionForm addService={addServiceRequest} setServices={setServices}/>}
+                {addService && <ServiceAdditionForm addService={addServiceRequest} budget={budgetProject}/>}
             </div>
             <hr />
             <div className={style.services}>
