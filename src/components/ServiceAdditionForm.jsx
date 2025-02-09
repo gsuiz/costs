@@ -1,5 +1,5 @@
 
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import style from "../routes/EditProject.module.css"
 import SubmitButton from "./SubmitButton"
 

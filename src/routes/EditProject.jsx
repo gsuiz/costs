@@ -18,12 +18,7 @@ const EditProject = () => {
     const [nameProject,setNameProject] = useState("") 
     const [categoryProject,setCategoryProject] = useState("")
     const [budgetProject,setBudgetProject] = useState("")
-
-    const updateProjectStates = (project) => {
-        setNameProject(project.name)
-        setCategoryProject(project.category?.name)
-        setBudgetProject(Number(project.budget))
-    }
+    const [costsProject,setCostsProject] = useState(0)
 
     useEffect(() => {
         const requestProject = async() => {
@@ -40,8 +35,16 @@ const EditProject = () => {
     },[])
     
     useEffect(() => {
-        updateProjectStates(project)
+        setNameProject(project.name)
+        setCategoryProject(project.category?.name)
+        setBudgetProject(Number(project.budget))
+        if(project.services?.length){
+            setCostsProject(project.services.reduce((acc,item) => acc + Number(item.cost) ,0))
+        } else {
+            setCostsProject(0)
+        }
         setServices(project.services)
+        console.log(project)
     },[project])
 
     const updateRequest = async(editedProject) => {
@@ -58,7 +61,7 @@ const EditProject = () => {
     
             toggleFromEditProject()
             setMessage("Projeto editado com sucesso!")
-            updateProjectStates(editedProject)
+            setProject(editedProject)
         } catch(err){
             console.error(`Erro ao editar projeto: ${err}`)
         }
@@ -72,13 +75,14 @@ const EditProject = () => {
                     headers:{
                         "Content-Type":"application/json"
                     },
-                    body: JSON.stringify({services:[...services,service]})
+                    body: JSON.stringify({costs:project.costs + Number(service.cost), services:[...services,service]})
                 }
             )
 
             setProject((state) => {
-                return {...state, services:[...services,service]}
+                return {...state,costs:project.costs + Number(service.cost), services:[...services,service]}
             })
+            setMessage("Serviço adicionado!")
         } catch(err){
             console.error(`Erro na adição de serviço:${err}`)
         }
@@ -90,12 +94,14 @@ const EditProject = () => {
             headers:{
                 'Content-Type':'application/json'
             },
-            body:JSON.stringify({ services:services.filter(item => item !== service) })
+            body:JSON.stringify({costs: project.costs - Number(service.cost), services:services.filter(item => item !== service) })
         })
 
         setProject((state) => {
-            return {...state, services: services.filter(item => item !== service)}
+            return {...state,costs:project.costs - Number(service.cost), services: services.filter(item => item !== service)}
         })
+
+        setMessage("Serviço removido com sucesso!")
     }
 
     const toggleAddingServices = () => addService ? setAddService(false) : setAddService(true)
@@ -116,7 +122,7 @@ const EditProject = () => {
                         <ul className={style.infor__list}>
                             <li><span>Categoria:</span> {categoryProject}</li>
                             <li><span>Total do Orçamento:</span> R${budgetProject}</li>
-                            <li><span>Total utilizado:</span> R${project.costs}</li>
+                            <li><span>Total utilizado:</span> R${costsProject}</li>
                         </ul>
 
                 }

@@ -2,36 +2,15 @@
   "projects": [
     {
       "id": "6a6e",
-      "name": "Projeto relampago marquinhos",
-      "budget": "890000",
+      "name": "Projeto relampago",
+      "budget": "89000",
       "category": {
-        "id": 3,
-        "name": "Design",
-        "color": "greenish"
+        "id": 1,
+        "name": "Infra",
+        "color": "pinkish"
       },
       "costs": 0,
-      "services": [
-        {
-          "name": "pintura",
-          "cost": "50000",
-          "description": "pintura do carro mais adesivos"
-        },
-        {
-          "name": "acabamento interior",
-          "cost": "80000",
-          "description": "troca de bancos, limpeza, e toda a revitalização interior do carro"
-        },
-        {
-          "name": "dsa",
-          "cost": "32324",
-          "description": "d sa"
-        },
-        {
-          "name": "dsada",
-          "cost": "324",
-          "description": "sada "
-        }
-      ]
+      "services": []
     }
   ],
   "categories": [
