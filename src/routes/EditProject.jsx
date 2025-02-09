@@ -84,6 +84,20 @@ const EditProject = () => {
         }
     }
 
+    const handleDeleteClick = async(service) => {
+        const response = await fetch(`http://localhost:5000/projects/${project.id}`, {
+            method:'PATCH',
+            headers:{
+                'Content-Type':'application/json'
+            },
+            body:JSON.stringify({ services:services.filter(item => item !== service) })
+        })
+
+        setProject((state) => {
+            return {...state, services: services.filter(item => item !== service)}
+        })
+    }
+
     const toggleAddingServices = () => addService ? setAddService(false) : setAddService(true)
     const toggleFromEditProject = () => editProject ? setEditProject(false) : setEditProject(true)
 
@@ -126,7 +140,7 @@ const EditProject = () => {
                                     <h2 className={style.item__name}>{item.name}</h2>
                                     <p className={style.item__cost}><span>Custo total:</span> R${item.cost}</p>
                                     <p>{item.description}</p>
-                                    <DeleteButton/>
+                                    <DeleteButton handle={() => handleDeleteClick(item)}/>
                                 </li>   
                             )}
                         </ul>

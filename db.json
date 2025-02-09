@@ -1,21 +1,9 @@
 {
   "projects": [
     {
-      "id": "e491",
-      "name": "teste do ferro",
-      "budget": "83921",
-      "category": {
-        "id": 2,
-        "name": "Desenvolvimento",
-        "color": "bluish"
-      },
-      "costs": 0,
-      "services": []
-    },
-    {
-      "id": "50b8",
-      "name": "projeto do arrasta pra cima",
-      "budget": "18000",
+      "id": "6a6e",
+      "name": "Projeto relampago marquinhos",
+      "budget": "890000",
       "category": {
         "id": 3,
         "name": "Design",
@@ -24,14 +12,24 @@
       "costs": 0,
       "services": [
         {
-          "name": "serviço de divulgação",
-          "cost": "1200",
-          "description": "marketing digital"
+          "name": "pintura",
+          "cost": "50000",
+          "description": "pintura do carro mais adesivos"
         },
         {
-          "name": "artes da divulgação",
-          "cost": "2333",
-          "description": "Pagar o design"
+          "name": "acabamento interior",
+          "cost": "80000",
+          "description": "troca de bancos, limpeza, e toda a revitalização interior do carro"
+        },
+        {
+          "name": "dsa",
+          "cost": "32324",
+          "description": "d sa"
+        },
+        {
+          "name": "dsada",
+          "cost": "324",
+          "description": "sada "
         }
       ]
     }
