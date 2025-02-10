@@ -18,12 +18,7 @@ const EditProject = () => {
     const [nameProject,setNameProject] = useState("") 
     const [categoryProject,setCategoryProject] = useState("")
     const [budgetProject,setBudgetProject] = useState("")
-
-    const updateProjectStates = (project) => {
-        setNameProject(project.name)
-        setCategoryProject(project.category?.name)
-        setBudgetProject(Number(project.budget))
-    }
+    const [costsProject,setCostsProject] = useState(0)
 
     useEffect(() => {
         const requestProject = async() => {
@@ -40,8 +35,16 @@ const EditProject = () => {
     },[])
     
     useEffect(() => {
-        updateProjectStates(project)
+        setNameProject(project.name)
+        setCategoryProject(project.category?.name)
+        setBudgetProject(Number(project.budget))
+        if(project.services?.length){
+            setCostsProject(project.services.reduce((acc,item) => acc + Number(item.cost) ,0))
+        } else {
+            setCostsProject(0)
+        }
         setServices(project.services)
+        console.log(project)
     },[project])
 
     const updateRequest = async(editedProject) => {
@@ -58,7 +61,7 @@ const EditProject = () => {
     
             toggleFromEditProject()
             setMessage("Projeto editado com sucesso!")
-            updateProjectStates(editedProject)
+            setProject(editedProject)
         } catch(err){
             console.error(`Erro ao editar projeto: ${err}`)
         }
@@ -72,16 +75,33 @@ const EditProject = () => {
                     headers:{
                         "Content-Type":"application/json"
                     },
-                    body: JSON.stringify({services:[...services,service]})
+                    body: JSON.stringify({costs:project.costs + Number(service.cost), services:[...services,service]})
                 }
             )
 
             setProject((state) => {
-                return {...state, services:[...services,service]}
+                return {...state,costs:project.costs + Number(service.cost), services:[...services,service]}
             })
+            setMessage("Serviço adicionado!")
         } catch(err){
             console.error(`Erro na adição de serviço:${err}`)
         }
+    }
+
+    const handleDeleteClick = async(service) => {
+        const response = await fetch(`http://localhost:5000/projects/${project.id}`, {
+            method:'PATCH',
+            headers:{
+                'Content-Type':'application/json'
+            },
+            body:JSON.stringify({costs: project.costs - Number(service.cost), services:services.filter(item => item !== service) })
+        })
+
+        setProject((state) => {
+            return {...state,costs:project.costs - Number(service.cost), services: services.filter(item => item !== service)}
+        })
+
+        setMessage("Serviço removido com sucesso!")
     }
 
     const toggleAddingServices = () => addService ? setAddService(false) : setAddService(true)
@@ -102,7 +122,7 @@ const EditProject = () => {
                         <ul className={style.infor__list}>
                             <li><span>Categoria:</span> {categoryProject}</li>
                             <li><span>Total do Orçamento:</span> R${budgetProject}</li>
-                            <li><span>Total utilizado:</span> R${project.costs}</li>
+                            <li><span>Total utilizado:</span> R${costsProject}</li>
                         </ul>
 
                 }
@@ -113,7 +133,7 @@ const EditProject = () => {
                     <h2>Adicione um serviço:</h2>
                     <SubmitButton handle={toggleAddingServices} text={addService ? "Fechar" : "Adicionar Serviço" } />
                 </div>
-                {addService && <ServiceAdditionForm addService={addServiceRequest} budget={budgetProject}/>}
+                {addService && <ServiceAdditionForm addService={addServiceRequest} budget={budgetProject} costs={project.costs}/>}
             </div>
             <hr />
             <div className={style.services}>
@@ -126,7 +146,7 @@ const EditProject = () => {
                                     <h2 className={style.item__name}>{item.name}</h2>
                                     <p className={style.item__cost}><span>Custo total:</span> R${item.cost}</p>
                                     <p>{item.description}</p>
-                                    <DeleteButton/>
+                                    <DeleteButton handle={() => handleDeleteClick(item)}/>
                                 </li>   
                             )}
                         </ul>

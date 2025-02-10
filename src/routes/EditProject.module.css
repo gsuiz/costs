@@ -1,6 +1,6 @@
 
 .editProject{
-    width: 80vw;
+    width: 90vw;
     margin: auto;
 }
 
@@ -91,6 +91,8 @@
 .services__single{
     list-style: none;
     display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
     gap: 10px;
 }
 
