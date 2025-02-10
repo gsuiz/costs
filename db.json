@@ -2,19 +2,39 @@
   "projects": [
     {
       "id": "6a6e",
-      "name": "Projeto relampago",
+      "name": "Projeto mcqueen",
       "budget": "89000",
       "category": {
-        "id": 1,
-        "name": "Infra",
-        "color": "pinkish"
+        "id": 3,
+        "name": "Design",
+        "color": "greenish"
       },
-      "costs": 3223,
+      "costs": 6943,
       "services": [
         {
           "name": "dsd",
           "cost": "3223",
           "description": "sd"
+        },
+        {
+          "name": "serviço para restauração maxilar",
+          "cost": "3333",
+          "description": "fodase"
+        },
+        {
+          "name": "dsad",
+          "cost": "323",
+          "description": "dsada"
+        },
+        {
+          "name": "dsada",
+          "cost": "32",
+          "description": "dasdsa"
+        },
+        {
+          "name": "dsadas",
+          "cost": "32",
+          "description": "dwsadas"
         }
       ]
     },
