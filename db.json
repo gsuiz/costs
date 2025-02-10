@@ -2,19 +2,39 @@
   "projects": [
     {
       "id": "6a6e",
-      "name": "Projeto relampago",
+      "name": "Projeto mcqueen",
       "budget": "89000",
       "category": {
-        "id": 1,
-        "name": "Infra",
-        "color": "pinkish"
+        "id": 3,
+        "name": "Design",
+        "color": "greenish"
       },
-      "costs": 3223,
+      "costs": 6943,
       "services": [
         {
           "name": "dsd",
           "cost": "3223",
           "description": "sd"
+        },
+        {
+          "name": "serviço para restauração maxilar",
+          "cost": "3333",
+          "description": "fodase"
+        },
+        {
+          "name": "dsad",
+          "cost": "323",
+          "description": "dsada"
+        },
+        {
+          "name": "dsada",
+          "cost": "32",
+          "description": "dasdsa"
+        },
+        {
+          "name": "dsadas",
+          "cost": "32",
+          "description": "dwsadas"
         }
       ]
     },
@@ -68,46 +88,16 @@
       "cost": null
     },
     {
-      "id": "a9b1",
-      "name": "dsadas",
-      "budget": "3323",
+      "id": "3e5a",
+      "name": "dsadsa",
+      "budget": "333",
       "category": {
-        "id": "1",
-        "name": "Infra"
+        "id": 1,
+        "name": "Infra",
+        "color": "pinkish"
       },
-      "cost": 3323,
-      "services": [
-        {
-          "name": "dasdsa",
-          "cost": "3321",
-          "description": "dsada",
-          "id": "78c309a9-1d18-499c-85d4-ff22b59b23ca"
-        },
-        {
-          "name": "safd",
-          "cost": "2",
-          "description": "dsad",
-          "id": "4c6e1b31-16a5-4aed-8fd8-d17fd66dcf6c"
-        }
-      ]
-    },
-    {
-      "id": "631f",
-      "name": "dsadas",
-      "budget": "2333",
-      "category": {
-        "id": "1",
-        "name": "Infra"
-      },
-      "cost": 2333,
-      "services": [
-        {
-          "name": "dsada",
-          "cost": "2333",
-          "description": "dsad",
-          "id": "b2c043cb-1eae-4aa9-a98b-9b96d8e816b9"
-        }
-      ]
+      "costs": 0,
+      "services": []
     }
   ],
   "categories": [
