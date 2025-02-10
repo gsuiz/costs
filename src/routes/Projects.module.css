@@ -1,7 +1,7 @@
 
 .projects{
     width: 100vw;
-    padding: 0 8vw;
+    padding: 0 5vw;
 }
 
 .project__loading{
@@ -115,4 +115,29 @@
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+@media screen and (max-width:600px) {
+    .projects__top{
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .projects__top h1{
+        font-size: 33px;
+    }
+
+    .projects__list{
+        gap: 30px;
+    }
+    
+    .projects__single{
+        margin: 0 auto;
+        width: 90%;
+        max-width: 380px;
+    }
+
+    .single__name{
+        text-align: center;
+    }
 }

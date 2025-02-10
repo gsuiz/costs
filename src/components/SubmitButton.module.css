@@ -23,9 +23,3 @@
         color: #ffbb33;
     }
 }
-
-@media screen and (max-width:600px) {
-    .submitButton{
-        height: 40px;
-    }
-}
