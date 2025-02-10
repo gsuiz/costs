@@ -9,8 +9,105 @@
         "name": "Infra",
         "color": "pinkish"
       },
-      "costs": 0,
-      "services": []
+      "costs": 3223,
+      "services": [
+        {
+          "name": "dsd",
+          "cost": "3223",
+          "description": "sd"
+        }
+      ]
+    },
+    {
+      "id": "fc5e",
+      "name": "projeto para teste",
+      "budget": "10000",
+      "category": {
+        "id": 2,
+        "name": "Desenvolvimento",
+        "color": "bluish"
+      },
+      "costs": 10000,
+      "services": [
+        {
+          "name": "dsadsad",
+          "cost": "222",
+          "description": "dsada"
+        },
+        {
+          "name": "sadsa",
+          "cost": "300",
+          "description": "dsadas"
+        },
+        {
+          "name": "dsadas",
+          "cost": "145",
+          "description": "dsad"
+        },
+        {
+          "name": "dsda",
+          "cost": "9000",
+          "description": "dsa"
+        },
+        {
+          "name": "dsadsa",
+          "cost": "300",
+          "description": "dsadas"
+        },
+        {
+          "name": "dsa",
+          "cost": "30",
+          "description": "dwqdsa"
+        },
+        {
+          "name": "dsadsa",
+          "cost": "3",
+          "description": "dsadas"
+        }
+      ],
+      "cost": null
+    },
+    {
+      "id": "a9b1",
+      "name": "dsadas",
+      "budget": "3323",
+      "category": {
+        "id": "1",
+        "name": "Infra"
+      },
+      "cost": 3323,
+      "services": [
+        {
+          "name": "dasdsa",
+          "cost": "3321",
+          "description": "dsada",
+          "id": "78c309a9-1d18-499c-85d4-ff22b59b23ca"
+        },
+        {
+          "name": "safd",
+          "cost": "2",
+          "description": "dsad",
+          "id": "4c6e1b31-16a5-4aed-8fd8-d17fd66dcf6c"
+        }
+      ]
+    },
+    {
+      "id": "631f",
+      "name": "dsadas",
+      "budget": "2333",
+      "category": {
+        "id": "1",
+        "name": "Infra"
+      },
+      "cost": 2333,
+      "services": [
+        {
+          "name": "dsada",
+          "cost": "2333",
+          "description": "dsad",
+          "id": "b2c043cb-1eae-4aa9-a98b-9b96d8e816b9"
+        }
+      ]
     }
   ],
   "categories": [

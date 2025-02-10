@@ -3,9 +3,11 @@ import { useState } from "react"
 import style from "../routes/EditProject.module.css"
 import SubmitButton from "./SubmitButton"
 
-const ServiceAdditionForm = ({addService,budget}) => {
+const ServiceAdditionForm = ({addService,budget,costs}) => {
     const [service,setService] = useState({})
     const [invalidServiceCost, setInvalidCost] = useState(false)
+
+    const handleClick = () => setInvalidCost(false)
     
     const handleChange = (e) => {
         setService((state) => {
@@ -16,10 +18,9 @@ const ServiceAdditionForm = ({addService,budget}) => {
     const handleSubmit = (e) => {
         e.preventDefault()
         const inputs = Array.from(e.currentTarget.querySelectorAll("input"))
-
         const regex = /^[1-9]\d*$/
 
-        if(Number(service.cost) > budget || !regex.test(service.cost)){
+        if(Number(service.cost) > (budget - costs) || !regex.test(service.cost)){
             setInvalidCost(true)
             inputs[1].value = ""
         } else{
@@ -47,7 +48,15 @@ const ServiceAdditionForm = ({addService,budget}) => {
                     name="cost" 
                     className={`${style.addService__input} ${invalidServiceCost ? style.invalidCost : ""}`} 
                     onChange={handleChange} 
-                    placeholder={`${ invalidServiceCost ? `Insira um valor válido. Ex:${(budget / 5).toFixed()}` : 'Insira o valor do serviço'}`}
+                    onClick={handleClick}
+                    placeholder={`${ invalidServiceCost 
+                        ? 
+                            (budget - costs) ?
+                                `Insira um valor válido. Ex:${((budget - costs) / 2).toFixed()}`
+                            :
+                                `Orçamento esgotado.`
+                        : 
+                        'Insira o valor do serviço'}`}
                     required
                 />
                 <p>Descrição do projeto:</p>

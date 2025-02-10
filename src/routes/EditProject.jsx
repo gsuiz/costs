@@ -133,7 +133,7 @@ const EditProject = () => {
                     <h2>Adicione um serviço:</h2>
                     <SubmitButton handle={toggleAddingServices} text={addService ? "Fechar" : "Adicionar Serviço" } />
                 </div>
-                {addService && <ServiceAdditionForm addService={addServiceRequest} budget={budgetProject}/>}
+                {addService && <ServiceAdditionForm addService={addServiceRequest} budget={budgetProject} costs={project.costs}/>}
             </div>
             <hr />
             <div className={style.services}>
